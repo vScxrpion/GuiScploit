@@ -1,0 +1,473 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Scploit = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Min = Instance.new("TextButton")
+local Act = Instance.new("Frame")
+local ABA1 = Instance.new("TextButton")
+local PLR = Instance.new("Frame")
+local JP = Instance.new("TextButton")
+local KA = Instance.new("TextButton")
+local EA = Instance.new("TextButton")
+local TA = Instance.new("TextButton")
+local ABA2 = Instance.new("TextButton")
+local ABA3 = Instance.new("TextButton")
+local VS = Instance.new("Frame")
+local MS = Instance.new("TextButton")
+local TextBox = Instance.new("TextBox")
+local PA = Instance.new("TextButton")
+local GL = Instance.new("TextButton")
+local SP = Instance.new("TextButton")
+local SERVER = Instance.new("Frame")
+local TX = Instance.new("TextButton")
+local TextBox_2 = Instance.new("TextBox")
+local SK = Instance.new("TextButton")
+local DS = Instance.new("TextButton")
+local NW = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+Scploit.Name = "Scploit"
+Scploit.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Scploit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Scploit.ResetOnSpawn = false
+
+Frame.Parent = Scploit
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.339374989, 0, 0.350125939, 0)
+Frame.Size = UDim2.new(0.386999995, 0, 0.470999986, 0)
+
+Min.Name = "Min"
+Min.Parent = Frame
+Min.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Min.BackgroundTransparency = 1.000
+Min.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Min.BorderSizePixel = 0
+Min.Position = UDim2.new(0.895799875, 0, 0.0345226377, 0)
+Min.Size = UDim2.new(0.103939302, 0, 0.073360607, 0)
+Min.Font = Enum.Font.SourceSans
+Min.Text = "-"
+Min.TextColor3 = Color3.fromRGB(255, 255, 255)
+Min.TextSize = 35.000
+Min.TextWrapped = true
+
+Act.Name = "Act"
+Act.Parent = Frame
+Act.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+Act.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Act.BorderSizePixel = 0
+Act.Position = UDim2.new(0.0193375442, 0, 0.280496448, 0)
+Act.Size = UDim2.new(0.962042809, 0, 0.686137438, 0)
+
+ABA1.Name = "ABA1"
+ABA1.Parent = Act
+ABA1.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+ABA1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ABA1.BorderSizePixel = 0
+ABA1.Position = UDim2.new(0, 0, -0.16352202, 0)
+ABA1.Size = UDim2.new(0.193467334, 0, 0.16352202, 0)
+ABA1.Font = Enum.Font.SourceSans
+ABA1.Text = "Players"
+ABA1.TextColor3 = Color3.fromRGB(255, 255, 255)
+ABA1.TextSize = 14.000
+
+PLR.Name = "PLR"
+PLR.Parent = Act
+PLR.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+PLR.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PLR.BorderSizePixel = 0
+PLR.Size = UDim2.new(1, 0, 1, 0)
+PLR.Visible = false
+
+JP.Name = "JP"
+JP.Parent = PLR
+JP.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+JP.BorderColor3 = Color3.fromRGB(0, 0, 0)
+JP.BorderSizePixel = 0
+JP.Position = UDim2.new(0.0402010046, 0, 0.194968551, 0)
+JP.Size = UDim2.new(0.190954775, 0, 0.16352202, 0)
+JP.Font = Enum.Font.SourceSans
+JP.Text = "Jump all"
+JP.TextColor3 = Color3.fromRGB(255, 255, 255)
+JP.TextSize = 14.000
+JP.TextWrapped = true
+local US = Instance.new("UIStroke")
+US.Parent = JP
+US.ApplyStrokeMode = "Border"
+US.Color = Color3.new(0, 0.333333, 1)
+
+KA.Name = "KA"
+KA.Parent = PLR
+KA.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+KA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+KA.BorderSizePixel = 0
+KA.Position = UDim2.new(0.0402010046, 0, 0.415094346, 0)
+KA.Size = UDim2.new(0.190954775, 0, 0.16352202, 0)
+KA.Font = Enum.Font.SourceSans
+KA.Text = "Damage all"
+KA.TextColor3 = Color3.fromRGB(255, 255, 255)
+KA.TextSize = 14.000
+KA.TextWrapped = true
+local US2 = Instance.new("UIStroke")
+US2.Parent = KA
+US2.ApplyStrokeMode = "Border"
+US2.Color = Color3.new(0, 0.333333, 1)
+
+EA.Name = "EA"
+EA.Parent = PLR
+EA.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+EA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+EA.BorderSizePixel = 0
+EA.Position = UDim2.new(0.0402010046, 0, 0.628930807, 0)
+EA.Size = UDim2.new(0.190954775, 0, 0.16352202, 0)
+EA.Font = Enum.Font.SourceSans
+EA.Text = "Explode all"
+EA.TextColor3 = Color3.fromRGB(255, 255, 255)
+EA.TextSize = 14.000
+EA.TextWrapped = true
+local US3 = Instance.new("UIStroke")
+US3.Parent = EA
+US3.ApplyStrokeMode = "Border"
+US3.Color = Color3.new(0, 0.333333, 1)
+
+TA.Name = "TA"
+TA.Parent = PLR
+TA.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+TA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TA.BorderSizePixel = 0
+TA.Position = UDim2.new(0.283919603, 0, 0.194968551, 0)
+TA.Size = UDim2.new(0.190954775, 0, 0.16352202, 0)
+TA.Font = Enum.Font.SourceSans
+TA.Text = "Teleport all to you"
+TA.TextColor3 = Color3.fromRGB(255, 255, 255)
+TA.TextScaled = true
+TA.TextSize = 14.000
+TA.TextWrapped = true
+local US4 = Instance.new("UIStroke")
+US4.Parent = TA
+US4.ApplyStrokeMode = "Border"
+US4.Color = Color3.new(0, 0.333333, 1)
+
+ABA2.Name = "ABA2"
+ABA2.Parent = Act
+ABA2.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+ABA2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ABA2.BorderSizePixel = 0
+ABA2.Position = UDim2.new(0.236180902, 0, -0.16352202, 0)
+ABA2.Size = UDim2.new(0.193467334, 0, 0.16352202, 0)
+ABA2.Font = Enum.Font.SourceSans
+ABA2.Text = "Ambient"
+ABA2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ABA2.TextSize = 14.000
+
+ABA3.Name = "ABA3"
+ABA3.Parent = Act
+ABA3.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+ABA3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ABA3.BorderSizePixel = 0
+ABA3.Position = UDim2.new(0.474874377, 0, -0.16352202, 0)
+ABA3.Size = UDim2.new(0.193467334, 0, 0.16352202, 0)
+ABA3.Font = Enum.Font.SourceSans
+ABA3.Text = "Server"
+ABA3.TextColor3 = Color3.fromRGB(255, 255, 255)
+ABA3.TextSize = 14.000
+
+VS.Name = "VS"
+VS.Parent = Act
+VS.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+VS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+VS.BorderSizePixel = 0
+VS.Position = UDim2.new(-0.000762939453, 0, -0.00252240268, 0)
+VS.Size = UDim2.new(1, 0, 1, 0)
+VS.Visible = false
+
+MS.Name = "MS"
+MS.Parent = VS
+MS.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+MS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MS.BorderSizePixel = 0
+MS.Position = UDim2.new(0.786432147, 0, 0.106918238, 0)
+MS.Size = UDim2.new(0.183417082, 0, 0.176100627, 0)
+MS.Font = Enum.Font.SourceSans
+MS.Text = "Music Server"
+MS.TextColor3 = Color3.fromRGB(255, 255, 255)
+MS.TextSize = 14.000
+MS.TextWrapped = true
+local US6 = Instance.new("UIStroke")
+US6.Parent = MS
+US6.ApplyStrokeMode = "Border"
+US6.Color = Color3.new(0, 0.333333, 1)
+
+TextBox.Parent = MS
+TextBox.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(-1.60273969, 0, 0.214285716, 0)
+TextBox.Size = UDim2.new(1.43835616, 0, 0.535714269, 0)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.PlaceholderText = "ID Here"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextSize = 14.000
+local US7 = Instance.new("UIStroke")
+US7.Parent = TextBox
+US7.ApplyStrokeMode = "Border"
+US7.Color = Color3.new(0, 0.333333, 1)
+
+PA.Name = "PA"
+PA.Parent = VS
+PA.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+PA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PA.BorderSizePixel = 0
+PA.Position = UDim2.new(0.786432147, 0, 0.65408808, 0)
+PA.Size = UDim2.new(0.183417082, 0, 0.176100627, 0)
+PA.Font = Enum.Font.SourceSans
+PA.Text = "Part all"
+PA.TextColor3 = Color3.fromRGB(255, 255, 255)
+PA.TextSize = 14.000
+PA.TextWrapped = true
+local US8 = Instance.new("UIStroke")
+US8.Parent = PA
+US8.ApplyStrokeMode = "Border"
+US8.Color = Color3.new(0, 0.333333, 1)
+
+GL.Name = "GL"
+GL.Parent = VS
+GL.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+GL.BorderColor3 = Color3.fromRGB(0, 0, 0)
+GL.BorderSizePixel = 0
+GL.Position = UDim2.new(0.786432147, 0, 0.377358496, 0)
+GL.Size = UDim2.new(0.183417082, 0, 0.176100627, 0)
+GL.Font = Enum.Font.SourceSans
+GL.Text = "Game Lighthing"
+GL.TextColor3 = Color3.fromRGB(255, 255, 255)
+GL.TextScaled = true
+GL.TextSize = 14.000
+GL.TextWrapped = true
+local US9 = Instance.new("UIStroke")
+US9.Parent = GL
+US9.ApplyStrokeMode = "Border"
+US9.Color = Color3.new(0, 0.333333, 1)
+
+SP.Name = "SP"
+SP.Parent = VS
+SP.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+SP.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SP.BorderSizePixel = 0
+SP.Position = UDim2.new(0.532663345, 0, 0.377358496, 0)
+SP.Size = UDim2.new(0.183417082, 0, 0.176100627, 0)
+SP.Font = Enum.Font.SourceSans
+SP.Text = "Skin color"
+SP.TextColor3 = Color3.fromRGB(255, 255, 255)
+SP.TextSize = 14.000
+SP.TextWrapped = true
+local US11 = Instance.new("UIStroke")
+US11.Parent = SP
+US11.ApplyStrokeMode = "Border"
+US11.Color = Color3.new(0, 0.333333, 1)
+
+SERVER.Name = "SERVER"
+SERVER.Parent = Act
+SERVER.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+SERVER.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SERVER.BorderSizePixel = 0
+SERVER.Position = UDim2.new(-0.000762939453, 0, -0.00252240268, 0)
+SERVER.Size = UDim2.new(1, 0, 1, 0)
+
+TX.Name = "TX"
+TX.Parent = SERVER
+TX.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+TX.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TX.BorderSizePixel = 0
+TX.Position = UDim2.new(0.0402010046, 0, 0.194968551, 0)
+TX.Size = UDim2.new(0.190954775, 0, 0.16352202, 0)
+TX.Font = Enum.Font.SourceSans
+TX.Text = "Text Server"
+TX.TextColor3 = Color3.fromRGB(255, 255, 255)
+TX.TextSize = 14.000
+TX.TextWrapped = true
+local US12 = Instance.new("UIStroke")
+US12.Parent = TX
+US12.ApplyStrokeMode = "Border"
+US12.Color = Color3.new(0, 0.333333, 1)
+
+TextBox_2.Parent = TX
+TextBox_2.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+TextBox_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox_2.BorderSizePixel = 0
+TextBox_2.Position = UDim2.new(1.05515492, 0, 0.214286208, 0)
+TextBox_2.Size = UDim2.new(1.43835616, 0, 0.535714269, 0)
+TextBox_2.Font = Enum.Font.SourceSans
+TextBox_2.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_2.PlaceholderText = "Text Here"
+TextBox_2.Text = ""
+TextBox_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_2.TextSize = 14.000
+local US13 = Instance.new("UIStroke")
+US13.Parent = TextBox_2
+US13.ApplyStrokeMode = "Border"
+US13.Color = Color3.new(0, 0.333333, 1)
+
+SK.Name = "SK"
+SK.Parent = SERVER
+SK.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+SK.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SK.BorderSizePixel = 0
+SK.Position = UDim2.new(0.756281435, 0, 0.194968551, 0)
+SK.Size = UDim2.new(0.190954775, 0, 0.16352202, 0)
+SK.Font = Enum.Font.SourceSans
+SK.Text = "Change Sky"
+SK.TextColor3 = Color3.fromRGB(255, 255, 255)
+SK.TextSize = 14.000
+SK.TextWrapped = true
+local US14 = Instance.new("UIStroke")
+US14.Parent = SK
+US14.ApplyStrokeMode = "Border"
+US14.Color = Color3.new(0, 0.333333, 1)
+
+DS.Name = "DS"
+DS.Parent = SERVER
+DS.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+DS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+DS.BorderSizePixel = 0
+DS.Position = UDim2.new(0.0402010046, 0, 0.415094346, 0)
+DS.Size = UDim2.new(0.190954775, 0, 0.16352202, 0)
+DS.Font = Enum.Font.SourceSans
+DS.Text = "Delete all"
+DS.TextColor3 = Color3.fromRGB(255, 255, 255)
+DS.TextSize = 14.000
+DS.TextWrapped = true
+local US15 = Instance.new("UIStroke")
+US15.Parent = DS
+US15.ApplyStrokeMode = "Border"
+US15.Color = Color3.new(0, 0.333333, 1)
+
+NW.Name = "NW"
+NW.Parent = SERVER
+NW.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+NW.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NW.BorderSizePixel = 0
+NW.Position = UDim2.new(0.0402010046, 0, 0.647798717, 0)
+NW.Size = UDim2.new(0.190954775, 0, 0.16352202, 0)
+NW.Font = Enum.Font.SourceSans
+NW.Text = "No walk"
+NW.TextColor3 = Color3.fromRGB(255, 255, 255)
+NW.TextSize = 14.000
+NW.TextWrapped = true
+local US16 = Instance.new("UIStroke")
+US16.Parent = NW
+US16.ApplyStrokeMode = "Border"
+US16.Color = Color3.new(0, 0.333333, 1)
+
+TextLabel.Parent = Act
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(-0.0201005023, 0, -0.389937103, 0)
+TextLabel.Size = UDim2.new(0.452015102, 0, 0.173485056, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Scploit"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+-- Scripts:
+
+local function IBXLFHM_fake_script() -- Scploit.Handler 
+	local script = Instance.new('LocalScript', Scploit)
+
+	local scg = script.Parent
+	local frm = scg.Frame
+	local minb = frm.Min
+	frm.Active = true
+	frm.Draggable = true
+	local db1 = false
+	minb.MouseButton1Click:Connect(function()
+		if db1 == false then
+			db1 = nil
+			minb.Text = "+"
+			frm.Act.Visible = false
+			frm.Size = UDim2.new(0.387, 0,0.068, 0)
+			task.wait(0.2)
+			db1 = true
+		elseif db1 == true  then
+			db1 = nil
+			minb.Text = "-"
+			frm.Act.Visible = true
+			frm.Size = UDim2.new(0.387, 0,0.471, 0)
+			task.wait(0.2)
+			db1 = false
+		end
+	end)
+	local getbttns = frm.Act:GetChildren()
+	for i, v in pairs(getbttns)  do
+		if v:IsA("TextButton") then
+			v.MouseButton1Click:Connect(function()
+				if v.Name == "ABA1" then
+					frm.Act.PLR.Visible = true
+					frm.Act.VS.Visible = false
+					frm.Act.SERVER.Visible = false
+				elseif v.Name == "ABA2" then
+					frm.Act.PLR.Visible = false
+					frm.Act.VS.Visible = true
+					frm.Act.SERVER.Visible = false
+				elseif v.Name == "ABA3" then
+					frm.Act.PLR.Visible = false
+					frm.Act.VS.Visible = false
+					frm.Act.SERVER.Visible = true
+				end
+			end)
+		end
+	end
+	local ev = game.ReplicatedStorage:WaitForChild("RobloxLoaderChat")
+	local alv = frm.Act
+	alv.PLR.JP.MouseButton1Click:Connect(function()
+		ev:FireServer("jp")
+	end)
+	alv.PLR.KA.MouseButton1Click:Connect(function()
+		ev:FireServer("ka")
+	end)
+	alv.PLR.EA.MouseButton1Click:Connect(function()
+		ev:FireServer("ea")
+	end)
+	alv.PLR.TA.MouseButton1Click:Connect(function()
+		ev:FireServer("ta")
+	end)
+	alv.VS.MS.MouseButton1Click:Connect(function()
+		local id = "rbxassetid://"..alv.VS.MS.TextBox.Text
+		ev:FireServer("ms", id)
+	end)
+	alv.VS.GL.MouseButton1Click:Connect(function()
+		ev:FireServer("gl")
+	end)
+	alv.VS.PA.MouseButton1Click:Connect(function()
+		ev:FireServer("pa")
+	end)
+	alv.VS.SP.MouseButton1Click:Connect(function()
+		ev:FireServer("sp")
+	end)
+	alv.SERVER.TX.MouseButton1Click:Connect(function()
+		local id = alv.SERVER.TX.TextBox.Text
+		ev:FireServer("tx", id)
+		alv.SERVER.TX.TextBox.Text = ""
+	end)
+	alv.SERVER.SK.MouseButton1Click:Connect(function()
+		ev:FireServer("sk")
+	end)
+	alv.SERVER.DS.MouseButton1Click:Connect(function()
+		ev:FireServer("ds")
+	end)
+	alv.SERVER.NW.MouseButton1Click:Connect(function()
+		ev:FireServer("nw")
+	end)
+end
+coroutine.wrap(IBXLFHM_fake_script)()
